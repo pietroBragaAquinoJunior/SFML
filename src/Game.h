@@ -3,20 +3,20 @@
 #define GAME_H
 
 #include <SFML/Graphics.hpp>
+#include "Player.h"
 
 class Game {
 public:
-    Game(); // Construtor
-    void run(); // Método para iniciar e rodar o jogo
+    Game();  // Construtor
+    void run();  // Loop principal do jogo
 
 private:
-    void processEvents(); // Processamento de eventos
-    void update();        // Atualizar o jogo (logica, física, etc.)
-    void render();        // Desenhar os objetos na tela
+    void processEvents();  // Processa eventos (como fechar a janela)
+    void update();         // Atualiza a lógica do jogo (movimento do jogador)
+    void render();         // Renderiza todos os objetos do jogo
 
-    sf::RenderWindow window; // Janela do jogo
-    sf::Sprite sprite;       // Personagem (sprite)
-    sf::Texture texture;     // Textura do sprite
+    sf::RenderWindow window;  // Janela do jogo
+    Player player;            // Personagem do jogo
 };
 
 #endif

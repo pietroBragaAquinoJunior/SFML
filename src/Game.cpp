@@ -1,20 +1,10 @@
 // Game.cpp
-#include "Game.h"  // Inclua o cabeçalho para a classe Game
+#include "Game.h"
 
-// Construtor de Game
 Game::Game() : window(sf::VideoMode::getDesktopMode(), "Personagem Animado", sf::Style::Fullscreen) {
-    if (!texture.loadFromFile("resources/personagem.png")) {
-        // Lidar com erro de carregamento
-        return;
-    }
-    sprite.setTexture(texture);
-
-    // Redimensionar o sprite
-    sprite.setScale(5.f, 5.f);  // Aumenta o sprite 4 vezes (ajuste conforme necessário)
-    sprite.setPosition(300.f, 300.f);  // Posição ajustada para centralizar melhor
+    // Inicialização do jogo (janela, etc.)
 }
 
-// Método para rodar o jogo
 void Game::run() {
     while (window.isOpen()) {
         processEvents();
@@ -23,7 +13,6 @@ void Game::run() {
     }
 }
 
-// Processamento de eventos
 void Game::processEvents() {
     sf::Event event;
     while (window.pollEvent(event)) {
@@ -32,14 +21,12 @@ void Game::processEvents() {
     }
 }
 
-// Atualizações do jogo (lógica, animações, etc.)
 void Game::update() {
-    // Atualizar o jogo, lógica, física, animações
+    player.update();  // Atualiza a movimentação do jogador
 }
 
-// Renderização (desenho na tela)
 void Game::render() {
-    window.clear(sf::Color(135, 206, 235));  // Cor do fundo (SkyBlue)
-    window.draw(sprite);  // Desenha o sprite na tela
-    window.display();
+    window.clear(sf::Color(135, 206, 235));  // Cor de fundo
+    player.render(window);  // Desenha o personagem
+    window.display();  // Exibe tudo na janela
 }
