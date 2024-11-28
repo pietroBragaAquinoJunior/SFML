@@ -4,6 +4,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Player.h"
+#include "AudioManager.h"
 
 class Game {
 public:
@@ -14,9 +15,11 @@ private:
     void processEvents();  // Processa eventos (como fechar a janela)
     void update();         // Atualiza a lógica do jogo (movimento do jogador)
     void render();         // Renderiza todos os objetos do jogo
+    void initAudio();      // Inicializa o sistema de áudio
 
     sf::RenderWindow window;  // Janela do jogo
     Player player;            // Personagem do jogo
+    AudioManager audioManager; // Gerenciador de áudio
 };
 
 #endif

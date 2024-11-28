@@ -3,7 +3,7 @@
 //
 
 // COMPILAÇÃO:
-//  g++ -Wall -Wextra -Werror src/main.cpp src/Game.cpp src/Player.cpp -o build/app.exe -lsfml-graphics -lsfml-window -lsfml-system
+//  g++ -Wall -Wextra -Werror src/AudioManager.cpp src/main.cpp src/Game.cpp src/Player.cpp -o build/app.exe -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 // .\build\app.exe
 
 // main.cpp

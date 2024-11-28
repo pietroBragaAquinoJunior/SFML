@@ -3,6 +3,16 @@
 
 Game::Game() : window(sf::VideoMode::getDesktopMode(), "Personagem Animado", sf::Style::Fullscreen) {
     // Inicialização do jogo (janela, etc.)
+    window.setFramerateLimit(60);
+    initAudio();
+}
+
+void Game::initAudio() {
+    // Carrega e inicia a música de fundo
+    if (audioManager.loadMusic("resources/music/Scott-Holmes-Music-Empires.ogg")) {
+        audioManager.setVolume(50.0f); // Volume a 50%
+        audioManager.playMusic();
+    }
 }
 
 void Game::run() {
