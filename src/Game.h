@@ -3,23 +3,34 @@
 #define GAME_H
 
 #include <SFML/Graphics.hpp>
+#include <SFML/OpenGL.hpp>
+#include <GL/gl.h>
 #include "Player.h"
 #include "AudioManager.h"
 
 class Game {
 public:
-    Game();  // Construtor
-    void run();  // Loop principal do jogo
+    Game();
+    void run();
 
 private:
-    void processEvents();  // Processa eventos (como fechar a janela)
-    void update();         // Atualiza a lógica do jogo (movimento do jogador)
-    void render();         // Renderiza todos os objetos do jogo
-    void initAudio();      // Inicializa o sistema de áudio
+    void processEvents();
+    void update();
+    void render();
+    void initAudio();
+    void render2D();
+    void render3D();
+    void setupGL();
+    void drawCube();
 
-    sf::RenderWindow window;  // Janela do jogo
-    Player player;            // Personagem do jogo
-    AudioManager audioManager; // Gerenciador de áudio
+    sf::RenderWindow window;
+    Player player;
+    AudioManager audioManager;
+    
+    bool is3DMode;
+    sf::Clock gameClock;
+    static constexpr float TRANSITION_TIME = 5.0f;
+    float rotationAngle;
 };
 
 #endif
